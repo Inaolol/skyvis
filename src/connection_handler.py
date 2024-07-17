@@ -13,13 +13,13 @@ class ConnectionHandler:
         self.classes = None
         self.frames = None
         self.translations = None
-        self.frames_file = "frames.json"  # Kaydedilen frames dosyası
-        self.translations_file = "translations.json"  # Kaydedilen translations dosyası
+        self.frames_file = "frames.json"  # Saved frames file 
+        self.translations_file = "translations.json"  # Saved translations file
         self.video_name = ''
         self.img_save_path = './_images/'
         
 
-        # URL'leri tanımla
+        # Define URLs
         self.url_login = self.base_url + "auth/"
         self.url_frames = self.base_url + "frames/"
         self.url_translations = self.base_url + "translation/"
@@ -47,7 +47,7 @@ class ConnectionHandler:
     def write_to_env(self, session_name=None):
         found = False
         change = False
-        # iterates over the lines, enters the condition on session_name line
+        # Write session name to environment configuration file.
         with open("./config/.env", "r+") as f:
             lines = f.readlines()
             for i, line in enumerate(lines):
@@ -80,20 +80,22 @@ class ConnectionHandler:
             return session_name
 
     def get_session_name(self):
-        # Config dosyasi icinde tanimlanmis olan oturum ismini cekelim.
-        # Oturum ismi config dosyasi icinde tanimlanmamissa sunucuya istek atarak cekilir.
+        # Retrieve the predefined session name from the config file.
+        # If the session name is not defined in the config file, it is obtained from the server by request.
         config.search_path = "../config/"
         return config("SESSION_NAME")
-
     def create_img_folder(self, path):
+        # Create a directory for saving images.
         post_path = os.path.join(self.img_save_path, path)
         os.makedirs(post_path, exist_ok=True)        
     
     def get_listdir(self):
+        # Get the list of files in the current video's image save path.
         save_path = os.path.join(self.img_save_path, self.video_name)
         return os.listdir(save_path), os.path.join(save_path)
 
     def save_frames_to_file(self, frames):
+         # Save frames data to a JSON file.
         try:
             self.video_name = frames[0]['video_name'] + '/'
             # create the dir
@@ -111,8 +113,8 @@ class ConnectionHandler:
             raise 
         
     def load_frames_from_file(self, session_name):
-        # Indirilen frameleri tekrardan indirmeyerek dogrudan klasorden okumamizi saglayan fonksiyondur.
-        # Ornek: "_images/Test_Oturumu" gibi isimli yolumuzdan frameleri yukleyelim
+        # Load downloaded frames directly from the directory without redownloading them.
+        # Example: "_images/Test_Session" to load frames from the path.
         base_path = os.path.join(self.img_save_path, session_name, self.frames_file)
         dirs = os.listdir(self.img_save_path)
         if session_name in dirs:
@@ -126,19 +128,19 @@ class ConnectionHandler:
     
     def get_frames(self, retries=3, initial_wait_time=0.1):
         """
-        Dikkat: Bir dakika içerisinde bir takım maksimum 5 adet get_frames isteği atabilmektedir.
-        Bu kısıt yarışma esnasında yarışmacıların gereksiz istek atarak sunucuya yük binmesini
-        engellemek için tanımlanmıştır. get_frames fonksiyonunu kullanırken bu kısıtı göz önünde
-        bulundurmak yarışmacıların sorumluluğundadır.
+        Note: Within a minute, a maximum of 5 get_frames requests can be made.
+        This restriction is set to prevent contestants from overloading the server with unnecessary requests during the competition.
+        Contestants are responsible for considering this limit while using the get_frames function.
+
         """
         try:
-            # _images klasorunun mevcut olup olmadigini kontrol edelim
+            # Check if the _images directory exists
             if os.path.exists(self.img_save_path):
-                # Eger _images klasoru olusturulmussa oturum ismimizi cekelim
+                # If the _images directory does exist, get the session name
                 session_name = self.get_session_name()
-                # Daha onceden indirilmis frameler var ise dosyadan o frameler yukleyelim.
+                # If there are previously downloaded frames, load them from the file.
                 frames = self.load_frames_from_file(session_name)
-                # framelerin oldugu dosyanin bos olmamasi durumunda
+                        # If the file containing the frames is not empty
                 if frames:
                     self.video_name = session_name + "/"
                     logging.info("Frames file exists. Loading frames from file.")
@@ -146,30 +148,30 @@ class ConnectionHandler:
         except:
             logging.info("Frames file exists, but it is corrupted.")
 
-            
+
         payload = {}
         headers = {'Authorization': 'Token {}'.format(self.auth_token)}
         wait_time = initial_wait_time
 
-        # Fonksiyonumuzu arka arkaya uc deneme yapacak sekilde ayarlayalim
+        # Set our function to attempt three times in a row
         for attempt in range(retries):
             try:
-                # Framelerin dosya yolunu cekebilmek icin sunucuya get istegi atalim.
-                # Burada timeout degeri 60 saniye olarak belirlenmistir.
+                # Send a GET request to the server to fetch the file path of the frames.
+                # Here, the timeout value is set to 60 seconds.
                 response = requests.get(self.url_frames, headers=headers, data=payload, timeout=60)
                 self.frames = json.loads(response.text)
-                # Get istegi basarili bir sekilde donduyse frameleri ilgili klasore kaydedelim
+                # If the GET request is successful, save the frames to the appropriate folder
                 if response.status_code == 200:
                     logging.info("Successful : get_frames : {}".format(self.frames))
                     self.save_frames_to_file(self.frames)
                     return self.frames
                 else:
-                    # Aksi durumda fail durumunu loglayalim
+                    # Log the failure if otherwise
                     logging.error("Failed : get_frames : {}".format(response.text))
             except requests.exceptions.RequestException as e:
                 logging.error(f"Get frames request failed: {e}")
 
-            # Denememizde basari saglayamadiysak kisa bir sure bekleyip tekradan istegimizi sunucuya gonderelim.
+            # If we are not successful in our attempt, wait for a short while and then resend our request to the server.
             logging.info(f"Retrying in {wait_time} seconds...")
             time.sleep(wait_time)
             wait_time *= 2
@@ -181,14 +183,14 @@ class ConnectionHandler:
     def save_translations_to_file(self, translations):
         try:
             translations_path = os.path.join(self.img_save_path, self.video_name, self.translations_file)
-                                   
+
             with open(translations_path, 'w') as f:
                 json.dump(translations, f)
-                
+
             logging.info(f"Translations saved to {translations_path}")
         except:
-            logging.warning("An error has occured")
-            
+            logging.warning("An error has occurred")
+
     def load_translations_from_file(self, session_name):
         # e.g. "_images/2024_tuyz_xxx/"
         base_path = os.path.join(self.img_save_path, session_name, self.translations_file)
@@ -204,47 +206,47 @@ class ConnectionHandler:
 
     def get_translations(self, retries=3, initial_wait_time=0.1):
         """
-          Dikkat: Bir dakika içerisinde bir takım maksimum 5 adet get_frames isteği atabilmektedir.
-          Bu kısıt yarışma esnasında yarışmacıların gereksiz istek atarak sunucuya yük binmesini
-          engellemek için tanımlanmıştır. get_frames fonksiyonunu kullanırken bu kısıtı göz önünde
-          bulundurmak yarışmacıların sorumluluğundadır.
-          """
+        Note: A team can make a maximum of 5 get_frames requests within a minute.
+        This restriction is defined to prevent unnecessary requests during the competition,
+        which can overload the server. It is the responsibility of the competitors to
+        consider this restriction when using the get_frames function.
+        """
         try:
-            # _images klasorunun mevcut olup olmadigini kontrol edelim
+            # Check if the _images folder exists
             if os.path.exists(self.img_save_path):
-                # Eger _images klasoru olusturulmussa oturum ismimizi cekelim
+                # If the _images folder has been created, retrieve our session name
                 session_name = self.get_session_name()
-                # Daha onceden indirilmis translations var ise dosyadan o frameler yukleyelim.
+                # If there are previously downloaded translations, load those frames from the file.
                 translations = self.load_translations_from_file(session_name)
-                # translationlarin oldugu dosyanin bos olmamasi durumunda
+                # If the file containing the translations is not empty
                 if translations:
                     logging.info("Translations file exists. Loading translations from file.")
                     return translations
         except:
-            logging.info("Translation json exists, but it is corrupted.")
-        
+            logging.info("Translation JSON exists, but it is corrupted.")
+
         payload = {}
         headers = {'Authorization': 'Token {}'.format(self.auth_token)}
         wait_time = initial_wait_time
 
         for attempt in range(retries):
             try:
-                # Framelerin dosya yolunu cekebilmek icin sunucuya get istegi atalim.
-                # Burada timeout degeri 60 saniye olarak belirlenmistir.
+                # Send a GET request to the server to fetch the file path of the frames.
+                # Here, the timeout value is set to 60 seconds.
                 response = requests.get(self.url_translations, headers=headers, data=payload, timeout=60)
                 self.translations = json.loads(response.text)
-                # Get istegi basarili bir sekilde donduyse translationlari ilgili klasore kaydedelim
+                # If the GET request is successful, save the translations to the appropriate folder
                 if response.status_code == 200:
                     logging.info("Successful : get_translations : {}".format(self.translations))
                     self.save_translations_to_file(self.translations)
                     return self.translations
                 else:
-                    # Aksi durumda fail durumunu loglayalim
+                    # Log the failure if otherwise
                     logging.error("Failed : get_translations : {}".format(response.text))
             except requests.exceptions.RequestException as e:
                 logging.error(f"Get translations request failed: {e}")
 
-            # Denememizde basari saglayamadiysak kisa bir sure bekleyip tekradan istegimizi sunucuya gonderelim.
+            # If we are not successful in our attempt, wait for a short while and then resend our request to the server.
             logging.info(f"Retrying in {wait_time} seconds...")
             time.sleep(wait_time)
             wait_time *= 2
@@ -254,19 +256,19 @@ class ConnectionHandler:
 
     def send_prediction(self, prediction, retries=3, initial_wait_time=0.1):
         """
-        Dikkat: Bir dakika içerisinde bir takım maksimum 80 frame için tahmin gönderebilecektir.
-        Bu kısıt yarışma esnasında yarışmacıların gereksiz istek atarak sunucuya yük binmesini
-        engellemek için tanımlanmıştır. send_prediction fonksiyonunu kullanırken bu kısıtı göz
-        önünde bulundurmak yarışmacıların sorumluluğundadır.
+        Note: A team can send predictions for a maximum of 80 frames within a minute.
+        This restriction is defined to prevent unnecessary requests during the competition,
+        which can overload the server. It is the responsibility of the competitors to
+        consider this restriction when using the send_prediction function.
 
-        Öneri: Bir dakika içerisinde gönderilen istek sayısı tutularak sistem hızlı çalışıyorsa
-        bekletilebilir (wait() vb). Azami istek sınırı aşıldığında sunucu gönderilen tahmini
-        veritabanına yazmamaktadır. Dolayısı ile bu durumu gözardı eden takımların istek sınır
-        aşımı yapan gönderimleri değerlendirilMEyecektir. İstek sınırı aşıldığında sunucu aşağıdaki
-        cevabı dönmektedir:
+        Suggestion: Keep track of the number of requests sent within a minute and, if the system
+        is running fast, delay (wait() etc.). If the maximum request limit is exceeded, the server
+        will not save the sent prediction to the database. Therefore, submissions that exceed
+        the request limit will not be evaluated. When the request limit is exceeded, the server
+        returns the following response:
             {"detail":"You do not have permission to perform this action."}
-        Ayrıca yarışmacılar sunucudan bu gibi başarısız bir gönderimi işaret eden cevap alındığında
-        gönderilemeyen tahmini sunucuya tekrar göndermek üzere bir mekanizma tasarlayabilir.
+        Additionally, competitors can design a mechanism to resend the unsent prediction to the server
+        if they receive a response indicating a failed submission from the server.
         """
 
 
@@ -281,17 +283,16 @@ class ConnectionHandler:
         for attempt in range(retries):
             try:
                 response = requests.post(self.url_prediction, headers=headers, data=payload, files=files, timeout=60)
-                # Ilgili frame icin basarili sekilde tahmin gonderebildiysek
+                # If we are able to send the prediction successfully for the relevant frame
                 if response.status_code == 201:
                     logging.info("Prediction sent successfully. \n\t{}".format(payload))
                     return response
-                # Ilgili frame'e ait olan tahmimizi daha once gondermis oldugumuz icin gonderemediysek loglayalim ve
-                # donguden cikalim. Aynı frame icin tekrar tekrar tahmin atmayi denemeyelim
+                # If we could not send the prediction because we have already sent it for the relevant frame, log it and
+                # exit the loop. Do not attempt to send predictions for the same frame repeatedly
                 elif response.status_code == 406:
-                    logging.error(
-                        "Prediction send failed - 406 Not Acceptable. Already sent. \n\t{}".format(response.text))
+                    logging.error("Prediction send failed - 406 Not Acceptable. Already sent. \n\t{}".format(response.text))
                     return response
-                # Hali hazirda gondermis olmamiz disinda bir sebepten tahmin gonderemiyorsak loglama yapalim
+                # Log if we cannot send the prediction for any other reason than having already sent it
                 else:
                     logging.error("Prediction send failed. \n\t{}".format(response.text))
                     response_json = json.loads(response.text)
@@ -301,11 +302,10 @@ class ConnectionHandler:
             except requests.exceptions.RequestException as e:
                 logging.error(f"Prediction request failed: {e}")
 
-            # Belli bir sure bekleyip ilgili frame icin tahmin gondermeyi tekrar deneyelim
+            # Wait for a certain period and try to send the prediction again for the relevant frame
             logging.info(f"Retrying in {wait_time} seconds...")
             time.sleep(wait_time)
             wait_time *= 2
 
         logging.error("Failed to send prediction after multiple retries.")
         return None
-

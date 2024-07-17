@@ -18,40 +18,40 @@ def configure_logger(team_name):
 
 def run():
     print("Started...")
-    # .env dosyasından konfigurasyon icin gereken bilgileri cek
+    # Fetch the necessary configuration information from the .env file
     config.search_path = "./config/"
     team_name = config('TEAM_NAME')
     password = config('PASSWORD')
     evaluation_server_url = config("EVALUATION_SERVER_URL")
 
-    # Logger'a ilgili konfigurasyon atamasini yap
+    # Assign the appropriate configuration to the logger
     configure_logger(team_name)
 
-    # Takimlar kendi kodlarini ObjectDetectionModel sinifi icerisine implemente edebilirler. (OPSIYONEL)
+    # Teams can implement their code within the ObjectDetectionModel class. (OPTIONAL)
     detection_model = ObjectDetectionModel(evaluation_server_url)
 
-    # Sunucuya baglan
+    # Connect to the server
     server = ConnectionHandler(evaluation_server_url, username=team_name, password=password)
 
-    # Mevcutta aktif olan oturumdan tum frameleri cek.
+    # Fetch all frames from the currently active session
     frames_json = server.get_frames()
 
-    # Mevcutta aktif olan oturumdan tum translation verilerini cek.
-    translations_json = server.get_translations()  
+    # Fetch all translation data from the currently active session
+    translations_json = server.get_translations()
 
-    # Klasorun ve dosyanin yollarini cekelim
+    # Retrieve the paths of the folder and files
     images_files, images_folder = server.get_listdir()
 
-    # Nesne tespiti modelini frame frame olacak sekilde calistir
+    # Run the object detection model frame by frame
     for frame, translation in tqdm(zip(frames_json, translations_json), total=len(frames_json)):
-        # Prediction objesini frame ve translation bilgilerini tutacak sekilde olustur
+        # Create a prediction object to hold frame and translation information
         predictions = FramePredictions(frame['url'], frame['image_url'], frame['video_name'],
                                        translation['translation_x'], translation['translation_y'])
-        # Healt status kontrolu ikinci gorevde sistemin ne zaman devreye girmesi gerektigini gosterir
+        # Health status control indicates when the system should activate in the second task
         health_status = translation['health_status']
-        # Tespit modelini calistir
-        predictions = detection_model.process(predictions,evaluation_server_url, health_status, images_folder, images_files)
-        # Modelin o frame'e ait tahmin degerlerini sunucuya gonder
+        # Run the detection model
+        predictions = detection_model.process(predictions, evaluation_server_url, health_status, images_folder, images_files)
+        # Send the model's prediction values for that frame to the server
         result = server.send_prediction(predictions)
 
 

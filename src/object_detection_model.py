@@ -2,28 +2,35 @@ import logging
 import time
 import random
 import requests
+import numpy as np
 
 from .constants import classes, landing_statuses
 from .detected_object import DetectedObject
 from .detected_translation import DetectedTranslation
+from ultralytics import YOLO
+import cv2
+#from .position_estimator import PositionEstimator
 
+do_not_save = False
 
 class ObjectDetectionModel:
     # Base class for team models
 
     def __init__(self, evaluation_server_url):
         logging.info('Created Object Detection Model')
+        if do_not_save:
+            print("Not sending predictions to server")
         self.evaulation_server = evaluation_server_url
-        # Modelinizi bu kısımda init edebilirsiniz.
-        # self.model = get_keras_model() # Örnektir!
+        self.model = YOLO("C:/Users/eraha/Desktop/weights/best.pt") # initialize your model here.
+        # self.position_estimator = PositionEstimator()  # Initialize the PositionEstimator
 
     @staticmethod
     def download_image(img_url, images_folder, images_files, retries=3, initial_wait_time=0.1):
         t1 = time.perf_counter()
         wait_time = initial_wait_time
-        # Indirmek istedigimiz frame frames.json dosyasinda mevcut mu kontrol edelim
+        # Check if the frame we want to download exists in the frames.json file
         image_name = img_url.split("/")[-1]
-        # Eger indirecegimiz frame'i daha once indirmediysek indirme islemine gecelim
+        # If we haven't downloaded the frame before, proceed with downloading
         if image_name not in images_files:
             for attempt in range(retries):
                     try:
@@ -36,7 +43,11 @@ class ObjectDetectionModel:
 
                         t2 = time.perf_counter()
                         logging.info(f'{img_url} - Download Finished in {t2 - t1} seconds to {images_folder + image_name}')
-                        return
+                        # Decode the downloaded image
+                        bytes_array = np.asarray(bytearray(img_bytes), dtype="uint8")
+                        image = cv2.imdecode(bytes_array, 1)
+                        
+                        return image
 
                     except requests.exceptions.RequestException as e:
                         logging.error(f"Download failed for {img_url} on attempt {attempt + 1}: {e}")
@@ -45,62 +56,115 @@ class ObjectDetectionModel:
                         wait_time *= 2
 
             logging.error(f"Failed to download image from {img_url} after {retries} attempts.")
-        # Eger indirecegimiz frame'i daha once indirdiysek indirme yapmadan devam edebiliriz
+        # If we have downloaded the frame before, we can skip downloading
         else:
             logging.info(f'{image_name} already exists in {images_folder}, skipping download.')
 
-    def process(self, prediction,evaluation_server_url,health_status, images_folder ,images_files):
-        # Yarışmacılar resim indirme, pre ve post process vb işlemlerini burada gerçekleştirebilir.
-        # Download image (Ornek)
-        self.download_image(evaluation_server_url + "media" + prediction.image_url, images_folder, images_files)
-        # Örnek: Burada OpenCV gibi bir tool ile preprocessing işlemi yapılabilir. (Tercihe Bağlı)
-        # ...
-        # Nesne tespiti ve pozisyon kestirim modelinin bulunduğu fonksiyonun (self.detect() ) çağırılması burada olmalıdır.
-        frame_results = self.detect(prediction,health_status)
-        # Tahminler objesi FramePrediction sınıfında return olarak dönülmelidir.
+    def process(self, prediction, evaluation_server_url, health_status, images_folder, images_files):
+        # Competitors can perform operations like image downloading, pre and post process, etc. here.
+        # Download image (Example)
+        image = self.download_image(evaluation_server_url + "media" + prediction.image_url, images_folder, images_files)
+        if image is None:
+            print(f"Failed to download image for prediction: {prediction.image_url}")
+            return None  # Return None or handle appropriately when image download fails
+        
+        try:
+            # Perform detection on the downloaded image
+            frame_results = self.detect(prediction, health_status, image)
+        except Exception as e:
+            print(f"Error during detection: {e}")
+            return None  # Return None or handle appropriately when detection fails
+        
         return frame_results
 
-    def detect(self, prediction,health_status):
-        # Modelinizle bu fonksiyon içerisinde tahmin yapınız.
-        # results = self.model.evaluate(...) # Örnektir.
+    def detect(self, prediction, health_status, image):
+        # RUN THE YOLO MODEL IN HERE:
+        results = self.model(image, conf=0.3, imgsz=640)
+        detected_boxes = results[0].boxes
 
-        # Burada örnek olması amacıyla 2 adet tahmin yapıldığı simüle edilmiştir.
-        # Yarışma esnasında modelin tahmin olarak ürettiği sonuçlar kullanılmalıdır.
-        # Örneğin :
-        # for i in results: # gibi
-        for i in range(1, 3):
-            cls = classes["UAP"],  # Tahmin edilen nesnenin sınıfı classes sözlüğü kullanılarak atanmalıdır.
-            landing_status = landing_statuses["Inilebilir"]  # Tahmin edilen nesnenin inilebilir durumu landing_statuses sözlüğü kullanılarak atanmalıdır.
-            top_left_x = 12 * i  # Örnek olması için rastgele değer atanmıştır. Modelin sonuçları kullanılmalıdır.
-            top_left_y = 12 * i  # Örnek olması için rastgele değer atanmıştır. Modelin sonuçları kullanılmalıdır.
-            bottom_right_x = 12 * i  # Örnek olması için rastgele değer atanmıştır. Modelin sonuçları kullanılmalıdır.
-            bottom_right_y = 12 * i  # Örnek olması için rastgele değer atanmıştır. Modelin sonuçları kullanılmalıdır.
+        vehicles = []
+        humans = []
+        fcp_areas = []
+        fal_areas = []
 
-            # Modelin tespit ettiği herbir nesne için bir DetectedObject sınıfına ait nesne oluşturularak
-            # tahmin modelinin sonuçları parametre olarak verilmelidir.
-            d_obj = DetectedObject(cls,
-                                   landing_status,
-                                   top_left_x,
-                                   top_left_y,
-                                   bottom_right_x,
-                                   bottom_right_y
-                                        )
+        # Categorize detected objects
+        for box in detected_boxes:
+            cls = int(box.cls[0])
+            x0, y0, x1, y1 = map(int, box.xyxy[0])
 
-            # Modelin tahmin ettiği her nesne prediction nesnesi içerisinde bulunan detected_objects listesine eklenmelidir.
+            if cls == 0:
+                vehicles.append([x0, y0, x1, y1, cls])
+            elif cls == 1:
+                humans.append([x0, y0, x1, y1, cls])
+            elif cls == 2:
+                fcp_areas.append([x0, y0, x1, y1, cls])
+            elif cls == 3:
+                fal_areas.append([x0, y0, x1, y1, cls])
+
+        # Check overlaps and determine landing status
+        for area in fcp_areas + fal_areas:
+            x0, y0, x1, y1, cls = area
+            area_suitable = True
+
+            for obj in vehicles + humans:
+                obj_x0, obj_y0, obj_x1, obj_y1, obj_cls = obj
+                if obj_x0 < x1 and obj_x1 > x0 and obj_y0 < y1 and obj_y1 > y0:
+                    area_suitable = False
+                    break
+
+            landing_status = landing_statuses["Suitable for Landing"] if area_suitable else landing_statuses["Not Suitable for Landing"]
+
+            # Create DetectedObject instance
+            d_obj = DetectedObject(
+                cls=cls,
+                landing_status=landing_status,
+                top_left_x=x0,
+                top_left_y=y0,
+                bottom_right_x=x1,
+                bottom_right_y=y1
+            )
+
+            # Add DetectedObject to prediction
             prediction.add_detected_object(d_obj)
 
-        # Health Status biti hava aracinin uydu haberlesmesinin saglikli olup olmadigini gosterir.
-        # Health Status 0 ise sistem calismali 1 ise gelen verinin aynisini gondermelidir.
+        # Create DetectedObject instances for vehicles
+        for obj in vehicles:
+            obj_x0, obj_y0, obj_x1, obj_y1, obj_cls = obj
+            d_obj = DetectedObject(
+                cls=obj_cls,
+                landing_status=landing_statuses["Not a Landing Area"],  
+                top_left_x=obj_x0,
+                top_left_y=obj_y0,
+                bottom_right_x=obj_x1,
+                bottom_right_y=obj_y1
+            )
+            prediction.add_detected_object(d_obj)
+
+        # Create DetectedObject instances for humans
+        for obj in humans:
+            obj_x0, obj_y0, obj_x1, obj_y1, obj_cls = obj
+            d_obj = DetectedObject(
+                cls=obj_cls,
+                landing_status=landing_statuses["Not a Landing Area"],  
+                top_left_x=obj_x0,
+                top_left_y=obj_y0,
+                bottom_right_x=obj_x1,
+                bottom_right_y=obj_y1
+            )
+            prediction.add_detected_object(d_obj)
+
+        # The health status bit indicates whether the aircraft's satellite communication is healthy.
+        # If Health Status is 0, the system should operate; if it is 1, it should send the same incoming data.
 
         if health_status == '0':
-            # Takimlar buraya kendi gelistirdikleri algoritmalarin sonuclarini entegre edebilirler.
-            pred_translation_x = random.randint(1, 10) # Ornek olmasi icin rastgele degerler atanmistir takimlar kendi sonuclarini kullanmalidirlar.
-            pred_translation_y = random.randint(1, 10) # Ornek olmasi icin rastgele degerler atanmistir takimlar kendi sonuclarini kullanmalidirlar.
-        else :
+            # Use the PositionEstimator to get the position
+            position = self.position_estimator.estimate_position(image)
+            pred_translation_x, pred_translation_y = position
+        else:
             pred_translation_x = prediction.gt_translation_x
             pred_translation_y = prediction.gt_translation_y
 
-        # Translation icin hesaplanilan degerleri sunucuya gondermek icin ilgili objeye dolduralim.
+        # Fill in the calculated values for translation to send to the server.
         trans_obj = DetectedTranslation(pred_translation_x, pred_translation_y)
         prediction.add_translation_object(trans_obj)
 
