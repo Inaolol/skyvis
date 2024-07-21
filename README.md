@@ -22,10 +22,7 @@ EVALUATION_SERVER_URL="SERVER INFORMATION WILL BE SHARED WITH COMPETITORS WHEN T
 SESSION_NAME=session_name
 ````
 - Make necessary adjustments and developments in the code, paying attention to the comments.
-  ```
-  NOT: 
-  For your first test, you can only change the `.env` file to test your server communication. 
-  ```
+
 - To run the system, execute the following command.
 ````shell
 python main.py
