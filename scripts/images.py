@@ -45,7 +45,7 @@ for img_path in image_paths:
         cv2.putText(annotated_frame, fps_display, (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2)
 
         # Display the annotated frame
-        cv2.imshow("YOLO Inference", annotated_frame)
+        cv2.imshow("images Inference", annotated_frame)
 
         # Break the loop if 'q' is pressed
         if cv2.waitKey(1) & 0xFF == ord("q"):
