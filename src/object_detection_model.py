@@ -21,7 +21,7 @@ class ObjectDetectionModel:
         if do_not_save:
             print("Not sending predictions to server")
         self.evaulation_server = evaluation_server_url
-        self.model = YOLO("C:/Users/eraha/Desktop/weights/best.pt") # initialize your model here.
+        self.model = YOLO("C:/Users/abdir/Desktop/models/best.pt") # initialize your model here.
         # self.position_estimator = PositionEstimator()  # Initialize the PositionEstimator
 
     @staticmethod
@@ -61,8 +61,8 @@ class ObjectDetectionModel:
             logging.info(f'{image_name} already exists in {images_folder}, skipping download.')
 
     def process(self, prediction, evaluation_server_url, health_status, images_folder, images_files):
-        # Competitors can perform operations like image downloading, pre and post process, etc. here.
-        # Download image (Example)
+        # Download image 
+
         image = self.download_image(evaluation_server_url + "media" + prediction.image_url, images_folder, images_files)
         if image is None:
             print(f"Failed to download image for prediction: {prediction.image_url}")
@@ -79,7 +79,7 @@ class ObjectDetectionModel:
 
     def detect(self, prediction, health_status, image):
         # RUN THE YOLO MODEL IN HERE:
-        results = self.model(image, conf=0.3, imgsz=640)
+        results = self.model(image, conf=0.3, imgsz=800)
         detected_boxes = results[0].boxes
 
         vehicles = []
@@ -130,6 +130,7 @@ class ObjectDetectionModel:
         # Create DetectedObject instances for vehicles
         for obj in vehicles:
             obj_x0, obj_y0, obj_x1, obj_y1, obj_cls = obj
+            
             d_obj = DetectedObject(
                 cls=obj_cls,
                 landing_status=landing_statuses["Not a Landing Area"],  
