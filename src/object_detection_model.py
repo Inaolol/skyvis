@@ -112,7 +112,7 @@ class ObjectDetectionModel:
                     area_suitable = False
                     break
 
-            landing_status = landing_statuses["Suitable for Landing"] if area_suitable else landing_statuses["Not Suitable for Landing"]
+            landing_status = landing_statuses["Inilebilir"] if area_suitable else landing_statuses["Inilemez"]
 
             # Create DetectedObject instance
             d_obj = DetectedObject(
@@ -133,7 +133,7 @@ class ObjectDetectionModel:
             
             d_obj = DetectedObject(
                 cls=obj_cls,
-                landing_status=landing_statuses["Not a Landing Area"],  
+                landing_status=landing_statuses["Inis Alani Degil"],  
                 top_left_x=obj_x0,
                 top_left_y=obj_y0,
                 bottom_right_x=obj_x1,
@@ -146,7 +146,7 @@ class ObjectDetectionModel:
             obj_x0, obj_y0, obj_x1, obj_y1, obj_cls = obj
             d_obj = DetectedObject(
                 cls=obj_cls,
-                landing_status=landing_statuses["Not a Landing Area"],  
+                landing_status=landing_statuses["Inis Alani Degil"],  
                 top_left_x=obj_x0,
                 top_left_y=obj_y0,
                 bottom_right_x=obj_x1,
