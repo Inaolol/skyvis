@@ -1,0 +1,171 @@
+2024-07-23 18:57:15,684 - INFO - Created Object Detection Model
+2024-07-23 18:57:16,026 - INFO - Login Successfully Completed : {'username': 'skyvisionai', 'password': '1QYHHUPlYuwe'}
+2024-07-23 18:57:16,029 - INFO - Frames loaded from ./_images/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video\frames.json
+2024-07-23 18:57:16,030 - INFO - Frames file exists. Loading frames from file.
+2024-07-23 18:57:16,033 - INFO - Translations loaded from ./_images/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video\translations.json
+2024-07-23 18:57:16,034 - INFO - Translations file exists. Loading translations from file.
+2024-07-23 18:57:16,202 - INFO - http://teknofest.cezerirobot.com:1025/media/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video/frame_000000.jpg - Download Finished in 0.1666072999999999 seconds to ./_images/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video/frame_000000.jpg
+2024-07-23 18:57:19,797 - ERROR - Prediction send failed - 406 Not Acceptable. Already sent. 
+	{"detail":"You have already sent a prediction for this frame."}
+2024-07-23 18:57:20,138 - INFO - http://teknofest.cezerirobot.com:1025/media/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video/frame_000004.jpg - Download Finished in 0.3392837999999996 seconds to ./_images/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video/frame_000004.jpg
+2024-07-23 18:57:21,002 - ERROR - Prediction send failed - 406 Not Acceptable. Already sent. 
+	{"detail":"You have already sent a prediction for this frame."}
+2024-07-23 18:57:21,198 - INFO - http://teknofest.cezerirobot.com:1025/media/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video/frame_000008.jpg - Download Finished in 0.19550019999999968 seconds to ./_images/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video/frame_000008.jpg
+2024-07-23 18:57:22,040 - ERROR - Prediction send failed - 406 Not Acceptable. Already sent. 
+	{"detail":"You have already sent a prediction for this frame."}
+2024-07-23 18:57:22,410 - INFO - http://teknofest.cezerirobot.com:1025/media/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video/frame_000012.jpg - Download Finished in 0.3694690999999999 seconds to ./_images/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video/frame_000012.jpg
+2024-07-23 18:57:23,285 - ERROR - Prediction send failed - 406 Not Acceptable. Already sent. 
+	{"detail":"You have already sent a prediction for this frame."}
+2024-07-23 18:57:23,456 - INFO - http://teknofest.cezerirobot.com:1025/media/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video/frame_000016.jpg - Download Finished in 0.17009180000000157 seconds to ./_images/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video/frame_000016.jpg
+2024-07-23 18:57:24,302 - ERROR - Prediction send failed - 406 Not Acceptable. Already sent. 
+	{"detail":"You have already sent a prediction for this frame."}
+2024-07-23 18:57:24,645 - INFO - http://teknofest.cezerirobot.com:1025/media/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video/frame_000020.jpg - Download Finished in 0.34306700000000134 seconds to ./_images/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video/frame_000020.jpg
+2024-07-23 18:57:25,500 - ERROR - Prediction send failed - 406 Not Acceptable. Already sent. 
+	{"detail":"You have already sent a prediction for this frame."}
+2024-07-23 18:57:25,686 - INFO - http://teknofest.cezerirobot.com:1025/media/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video/frame_000024.jpg - Download Finished in 0.18479130000000055 seconds to ./_images/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video/frame_000024.jpg
+2024-07-23 18:57:26,579 - ERROR - Prediction send failed - 406 Not Acceptable. Already sent. 
+	{"detail":"You have already sent a prediction for this frame."}
+2024-07-23 18:57:26,765 - INFO - http://teknofest.cezerirobot.com:1025/media/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video/frame_000028.jpg - Download Finished in 0.1860906 seconds to ./_images/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video/frame_000028.jpg
+2024-07-23 18:57:27,612 - ERROR - Prediction send failed - 406 Not Acceptable. Already sent. 
+	{"detail":"You have already sent a prediction for this frame."}
+2024-07-23 18:57:27,787 - INFO - http://teknofest.cezerirobot.com:1025/media/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video/frame_000032.jpg - Download Finished in 0.17326500000000067 seconds to ./_images/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video/frame_000032.jpg
+2024-07-23 18:57:28,665 - ERROR - Prediction send failed - 406 Not Acceptable. Already sent. 
+	{"detail":"You have already sent a prediction for this frame."}
+2024-07-23 18:57:28,868 - INFO - http://teknofest.cezerirobot.com:1025/media/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video/frame_000036.jpg - Download Finished in 0.20250770000000173 seconds to ./_images/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video/frame_000036.jpg
+2024-07-23 18:57:29,825 - ERROR - Prediction send failed - 406 Not Acceptable. Already sent. 
+	{"detail":"You have already sent a prediction for this frame."}
+2024-07-23 18:57:30,042 - INFO - http://teknofest.cezerirobot.com:1025/media/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video/frame_000040.jpg - Download Finished in 0.21640779999999893 seconds to ./_images/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video/frame_000040.jpg
+2024-07-23 18:57:30,988 - ERROR - Prediction send failed - 406 Not Acceptable. Already sent. 
+	{"detail":"You have already sent a prediction for this frame."}
+2024-07-23 18:57:31,237 - INFO - http://teknofest.cezerirobot.com:1025/media/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video/frame_000044.jpg - Download Finished in 0.2482110999999989 seconds to ./_images/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video/frame_000044.jpg
+2024-07-23 18:57:32,193 - ERROR - Prediction send failed - 406 Not Acceptable. Already sent. 
+	{"detail":"You have already sent a prediction for this frame."}
+2024-07-23 18:57:32,373 - INFO - http://teknofest.cezerirobot.com:1025/media/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video/frame_000048.jpg - Download Finished in 0.17957070000000286 seconds to ./_images/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video/frame_000048.jpg
+2024-07-23 18:57:33,350 - ERROR - Prediction send failed - 406 Not Acceptable. Already sent. 
+	{"detail":"You have already sent a prediction for this frame."}
+2024-07-23 18:57:33,543 - INFO - http://teknofest.cezerirobot.com:1025/media/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video/frame_000052.jpg - Download Finished in 0.19282970000000077 seconds to ./_images/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video/frame_000052.jpg
+2024-07-23 18:57:34,503 - ERROR - Prediction send failed - 406 Not Acceptable. Already sent. 
+	{"detail":"You have already sent a prediction for this frame."}
+2024-07-23 18:57:34,694 - INFO - http://teknofest.cezerirobot.com:1025/media/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video/frame_000056.jpg - Download Finished in 0.1903700999999991 seconds to ./_images/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video/frame_000056.jpg
+2024-07-23 18:57:35,681 - ERROR - Prediction send failed - 406 Not Acceptable. Already sent. 
+	{"detail":"You have already sent a prediction for this frame."}
+2024-07-23 18:57:35,849 - INFO - http://teknofest.cezerirobot.com:1025/media/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video/frame_000060.jpg - Download Finished in 0.1674471000000004 seconds to ./_images/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video/frame_000060.jpg
+2024-07-23 18:57:36,801 - ERROR - Prediction send failed - 406 Not Acceptable. Already sent. 
+	{"detail":"You have already sent a prediction for this frame."}
+2024-07-23 18:57:36,976 - INFO - http://teknofest.cezerirobot.com:1025/media/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video/frame_000064.jpg - Download Finished in 0.17419399999999996 seconds to ./_images/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video/frame_000064.jpg
+2024-07-23 18:57:37,954 - ERROR - Prediction send failed - 406 Not Acceptable. Already sent. 
+	{"detail":"You have already sent a prediction for this frame."}
+2024-07-23 18:57:38,127 - INFO - http://teknofest.cezerirobot.com:1025/media/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video/frame_000068.jpg - Download Finished in 0.17154920000000118 seconds to ./_images/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video/frame_000068.jpg
+2024-07-23 18:57:39,094 - ERROR - Prediction send failed - 406 Not Acceptable. Already sent. 
+	{"detail":"You have already sent a prediction for this frame."}
+2024-07-23 18:57:39,419 - INFO - http://teknofest.cezerirobot.com:1025/media/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video/frame_000072.jpg - Download Finished in 0.32380309999999923 seconds to ./_images/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video/frame_000072.jpg
+2024-07-23 18:57:40,377 - ERROR - Prediction send failed - 406 Not Acceptable. Already sent. 
+	{"detail":"You have already sent a prediction for this frame."}
+2024-07-23 18:57:40,546 - INFO - http://teknofest.cezerirobot.com:1025/media/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video/frame_000076.jpg - Download Finished in 0.16862659999999963 seconds to ./_images/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video/frame_000076.jpg
+2024-07-23 18:57:41,516 - ERROR - Prediction send failed - 406 Not Acceptable. Already sent. 
+	{"detail":"You have already sent a prediction for this frame."}
+2024-07-23 18:57:41,740 - INFO - http://teknofest.cezerirobot.com:1025/media/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video/frame_000080.jpg - Download Finished in 0.22295520000000124 seconds to ./_images/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video/frame_000080.jpg
+2024-07-23 18:57:42,705 - ERROR - Prediction send failed - 406 Not Acceptable. Already sent. 
+	{"detail":"You have already sent a prediction for this frame."}
+2024-07-23 18:57:42,881 - INFO - http://teknofest.cezerirobot.com:1025/media/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video/frame_000084.jpg - Download Finished in 0.1756378000000005 seconds to ./_images/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video/frame_000084.jpg
+2024-07-23 18:57:43,846 - ERROR - Prediction send failed - 406 Not Acceptable. Already sent. 
+	{"detail":"You have already sent a prediction for this frame."}
+2024-07-23 18:57:44,054 - INFO - http://teknofest.cezerirobot.com:1025/media/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video/frame_000088.jpg - Download Finished in 0.2068965000000027 seconds to ./_images/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video/frame_000088.jpg
+2024-07-23 18:57:44,996 - ERROR - Prediction send failed - 406 Not Acceptable. Already sent. 
+	{"detail":"You have already sent a prediction for this frame."}
+2024-07-23 18:57:45,194 - INFO - http://teknofest.cezerirobot.com:1025/media/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video/frame_000092.jpg - Download Finished in 0.19635419999999826 seconds to ./_images/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video/frame_000092.jpg
+2024-07-23 18:57:46,164 - ERROR - Prediction send failed - 406 Not Acceptable. Already sent. 
+	{"detail":"You have already sent a prediction for this frame."}
+2024-07-23 18:57:46,376 - INFO - http://teknofest.cezerirobot.com:1025/media/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video/frame_000096.jpg - Download Finished in 0.21042680000000047 seconds to ./_images/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video/frame_000096.jpg
+2024-07-23 18:57:47,323 - ERROR - Prediction send failed - 406 Not Acceptable. Already sent. 
+	{"detail":"You have already sent a prediction for this frame."}
+2024-07-23 18:57:47,543 - INFO - http://teknofest.cezerirobot.com:1025/media/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video/frame_000100.jpg - Download Finished in 0.21895809999999472 seconds to ./_images/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video/frame_000100.jpg
+2024-07-23 18:57:48,508 - ERROR - Prediction send failed - 406 Not Acceptable. Already sent. 
+	{"detail":"You have already sent a prediction for this frame."}
+2024-07-23 18:57:48,679 - INFO - http://teknofest.cezerirobot.com:1025/media/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video/frame_000104.jpg - Download Finished in 0.17047619999999597 seconds to ./_images/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video/frame_000104.jpg
+2024-07-23 18:57:49,631 - ERROR - Prediction send failed - 406 Not Acceptable. Already sent. 
+	{"detail":"You have already sent a prediction for this frame."}
+2024-07-23 18:57:49,809 - INFO - http://teknofest.cezerirobot.com:1025/media/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video/frame_000108.jpg - Download Finished in 0.17851490000000325 seconds to ./_images/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video/frame_000108.jpg
+2024-07-23 18:57:50,767 - ERROR - Prediction send failed - 406 Not Acceptable. Already sent. 
+	{"detail":"You have already sent a prediction for this frame."}
+2024-07-23 18:57:50,961 - INFO - http://teknofest.cezerirobot.com:1025/media/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video/frame_000112.jpg - Download Finished in 0.1944342999999975 seconds to ./_images/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video/frame_000112.jpg
+2024-07-23 18:57:51,907 - ERROR - Prediction send failed - 406 Not Acceptable. Already sent. 
+	{"detail":"You have already sent a prediction for this frame."}
+2024-07-23 18:57:52,094 - INFO - http://teknofest.cezerirobot.com:1025/media/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video/frame_000116.jpg - Download Finished in 0.18645750000000305 seconds to ./_images/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video/frame_000116.jpg
+2024-07-23 18:57:52,978 - ERROR - Prediction send failed - 406 Not Acceptable. Already sent. 
+	{"detail":"You have already sent a prediction for this frame."}
+2024-07-23 18:57:53,149 - INFO - http://teknofest.cezerirobot.com:1025/media/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video/frame_000120.jpg - Download Finished in 0.17054259999999744 seconds to ./_images/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video/frame_000120.jpg
+2024-07-23 18:57:54,137 - ERROR - Prediction send failed - 406 Not Acceptable. Already sent. 
+	{"detail":"You have already sent a prediction for this frame."}
+2024-07-23 18:57:54,344 - INFO - http://teknofest.cezerirobot.com:1025/media/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video/frame_000124.jpg - Download Finished in 0.20510820000000507 seconds to ./_images/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video/frame_000124.jpg
+2024-07-23 18:57:55,307 - ERROR - Prediction send failed - 406 Not Acceptable. Already sent. 
+	{"detail":"You have already sent a prediction for this frame."}
+2024-07-23 18:57:55,483 - INFO - http://teknofest.cezerirobot.com:1025/media/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video/frame_000128.jpg - Download Finished in 0.175878400000002 seconds to ./_images/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video/frame_000128.jpg
+2024-07-23 18:57:56,308 - ERROR - Prediction send failed - 406 Not Acceptable. Already sent. 
+	{"detail":"You have already sent a prediction for this frame."}
+2024-07-23 18:57:56,502 - INFO - http://teknofest.cezerirobot.com:1025/media/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video/frame_000132.jpg - Download Finished in 0.19226549999999776 seconds to ./_images/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video/frame_000132.jpg
+2024-07-23 18:57:57,371 - ERROR - Prediction send failed - 406 Not Acceptable. Already sent. 
+	{"detail":"You have already sent a prediction for this frame."}
+2024-07-23 18:57:57,578 - INFO - http://teknofest.cezerirobot.com:1025/media/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video/frame_000136.jpg - Download Finished in 0.20678290000000032 seconds to ./_images/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video/frame_000136.jpg
+2024-07-23 18:57:58,417 - ERROR - Prediction send failed - 406 Not Acceptable. Already sent. 
+	{"detail":"You have already sent a prediction for this frame."}
+2024-07-23 18:57:58,592 - INFO - http://teknofest.cezerirobot.com:1025/media/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video/frame_000140.jpg - Download Finished in 0.17374419999999446 seconds to ./_images/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video/frame_000140.jpg
+2024-07-23 18:57:59,461 - ERROR - Prediction send failed - 406 Not Acceptable. Already sent. 
+	{"detail":"You have already sent a prediction for this frame."}
+2024-07-23 18:57:59,633 - INFO - http://teknofest.cezerirobot.com:1025/media/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video/frame_000144.jpg - Download Finished in 0.1714589999999987 seconds to ./_images/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video/frame_000144.jpg
+2024-07-23 18:58:00,512 - ERROR - Prediction send failed - 406 Not Acceptable. Already sent. 
+	{"detail":"You have already sent a prediction for this frame."}
+2024-07-23 18:58:00,708 - INFO - http://teknofest.cezerirobot.com:1025/media/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video/frame_000148.jpg - Download Finished in 0.19462220000000485 seconds to ./_images/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video/frame_000148.jpg
+2024-07-23 18:58:01,553 - ERROR - Prediction send failed - 406 Not Acceptable. Already sent. 
+	{"detail":"You have already sent a prediction for this frame."}
+2024-07-23 18:58:01,730 - INFO - http://teknofest.cezerirobot.com:1025/media/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video/frame_000152.jpg - Download Finished in 0.17677889999999508 seconds to ./_images/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video/frame_000152.jpg
+2024-07-23 18:58:02,563 - ERROR - Prediction send failed - 406 Not Acceptable. Already sent. 
+	{"detail":"You have already sent a prediction for this frame."}
+2024-07-23 18:58:02,736 - INFO - http://teknofest.cezerirobot.com:1025/media/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video/frame_000156.jpg - Download Finished in 0.17373900000000475 seconds to ./_images/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video/frame_000156.jpg
+2024-07-23 18:58:03,554 - ERROR - Prediction send failed - 406 Not Acceptable. Already sent. 
+	{"detail":"You have already sent a prediction for this frame."}
+2024-07-23 18:58:03,728 - INFO - http://teknofest.cezerirobot.com:1025/media/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video/frame_000160.jpg - Download Finished in 0.17306250000000034 seconds to ./_images/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video/frame_000160.jpg
+2024-07-23 18:58:04,625 - ERROR - Prediction send failed - 406 Not Acceptable. Already sent. 
+	{"detail":"You have already sent a prediction for this frame."}
+2024-07-23 18:58:04,821 - INFO - http://teknofest.cezerirobot.com:1025/media/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video/frame_000164.jpg - Download Finished in 0.19424709999999834 seconds to ./_images/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video/frame_000164.jpg
+2024-07-23 18:58:05,667 - ERROR - Prediction send failed - 406 Not Acceptable. Already sent. 
+	{"detail":"You have already sent a prediction for this frame."}
+2024-07-23 18:58:05,860 - INFO - http://teknofest.cezerirobot.com:1025/media/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video/frame_000168.jpg - Download Finished in 0.19324749999999824 seconds to ./_images/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video/frame_000168.jpg
+2024-07-23 18:58:06,703 - ERROR - Prediction send failed - 406 Not Acceptable. Already sent. 
+	{"detail":"You have already sent a prediction for this frame."}
+2024-07-23 18:58:06,964 - INFO - http://teknofest.cezerirobot.com:1025/media/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video/frame_000172.jpg - Download Finished in 0.2596704999999986 seconds to ./_images/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video/frame_000172.jpg
+2024-07-23 18:58:07,779 - ERROR - Prediction send failed - 406 Not Acceptable. Already sent. 
+	{"detail":"You have already sent a prediction for this frame."}
+2024-07-23 18:58:07,988 - INFO - http://teknofest.cezerirobot.com:1025/media/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video/frame_000176.jpg - Download Finished in 0.2075114999999954 seconds to ./_images/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video/frame_000176.jpg
+2024-07-23 18:58:08,802 - ERROR - Prediction send failed - 406 Not Acceptable. Already sent. 
+	{"detail":"You have already sent a prediction for this frame."}
+2024-07-23 18:58:09,070 - INFO - http://teknofest.cezerirobot.com:1025/media/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video/frame_000180.jpg - Download Finished in 0.266730299999999 seconds to ./_images/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video/frame_000180.jpg
+2024-07-23 18:58:09,905 - ERROR - Prediction send failed - 406 Not Acceptable. Already sent. 
+	{"detail":"You have already sent a prediction for this frame."}
+2024-07-23 18:58:10,114 - INFO - http://teknofest.cezerirobot.com:1025/media/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video/frame_000184.jpg - Download Finished in 0.20876489999999848 seconds to ./_images/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video/frame_000184.jpg
+2024-07-23 18:58:10,940 - ERROR - Prediction send failed - 406 Not Acceptable. Already sent. 
+	{"detail":"You have already sent a prediction for this frame."}
+2024-07-23 18:58:11,125 - INFO - http://teknofest.cezerirobot.com:1025/media/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video/frame_000188.jpg - Download Finished in 0.18459620000000143 seconds to ./_images/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video/frame_000188.jpg
+2024-07-23 18:58:11,936 - ERROR - Prediction send failed - 406 Not Acceptable. Already sent. 
+	{"detail":"You have already sent a prediction for this frame."}
+2024-07-23 18:58:12,118 - INFO - http://teknofest.cezerirobot.com:1025/media/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video/frame_000192.jpg - Download Finished in 0.18162750000000472 seconds to ./_images/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video/frame_000192.jpg
+2024-07-23 18:58:12,938 - ERROR - Prediction send failed - 406 Not Acceptable. Already sent. 
+	{"detail":"You have already sent a prediction for this frame."}
+2024-07-23 18:58:13,138 - INFO - http://teknofest.cezerirobot.com:1025/media/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video/frame_000196.jpg - Download Finished in 0.19890769999999947 seconds to ./_images/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video/frame_000196.jpg
+2024-07-23 18:58:13,961 - ERROR - Prediction send failed - 406 Not Acceptable. Already sent. 
+	{"detail":"You have already sent a prediction for this frame."}
+2024-07-23 18:58:14,133 - INFO - http://teknofest.cezerirobot.com:1025/media/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video/frame_000200.jpg - Download Finished in 0.17118940000000293 seconds to ./_images/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video/frame_000200.jpg
+2024-07-23 18:58:14,958 - ERROR - Prediction send failed - 406 Not Acceptable. Already sent. 
+	{"detail":"You have already sent a prediction for this frame."}
+2024-07-23 18:58:15,146 - INFO - http://teknofest.cezerirobot.com:1025/media/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video/frame_000204.jpg - Download Finished in 0.18815899999999885 seconds to ./_images/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video/frame_000204.jpg
+2024-07-23 18:58:15,985 - ERROR - Prediction send failed - 406 Not Acceptable. Already sent. 
+	{"detail":"You have already sent a prediction for this frame."}
+2024-07-23 18:58:16,163 - INFO - http://teknofest.cezerirobot.com:1025/media/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video/frame_000208.jpg - Download Finished in 0.17648340000000218 seconds to ./_images/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video/frame_000208.jpg
+2024-07-23 18:58:16,965 - ERROR - Prediction send failed - 406 Not Acceptable. Already sent. 
+	{"detail":"You have already sent a prediction for this frame."}
+2024-07-23 18:58:17,365 - INFO - http://teknofest.cezerirobot.com:1025/media/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video/frame_000212.jpg - Download Finished in 0.4001616999999982 seconds to ./_images/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video/frame_000212.jpg
+2024-07-23 18:58:18,182 - ERROR - Prediction send failed - 406 Not Acceptable. Already sent. 
+	{"detail":"You have already sent a prediction for this frame."}
+2024-07-23 18:58:18,374 - INFO - http://teknofest.cezerirobot.com:1025/media/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video/frame_000216.jpg - Download Finished in 0.19154940000001375 seconds to ./_images/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video/frame_000216.jpg
+2024-07-23 18:58:19,185 - ERROR - Prediction send failed - 406 Not Acceptable. Already sent. 
+	{"detail":"You have already sent a prediction for this frame."}
