@@ -7,10 +7,10 @@ import time
 
 model = YOLO("C:/Users/abdir/Desktop/models/best.pt")
 
-image_paths = glob.glob("C:/Users/abdir/Downloads/TUYZ_2024_Ornek_Veri/TUYZ_2024_Ornek_Veri/frames/*.jpg")
+image_paths = glob.glob("C:/Users/abdir/Desktop/_images/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video/*.jpg")
 
 # Desired FPS
-desired_fps = 2.5
+desired_fps = 10.0
 frame_duration = 1.0 / desired_fps
 
 frame_count = 0
@@ -22,12 +22,9 @@ for img_path in image_paths:
 
     # Check if the image was successfully loaded
     if frame is not None:
-        # Resize the frame to a quarter of its original size
-        height, width = frame.shape[:2]
-        frame = cv2.resize(frame, (width // 2, height // 2))
-
+        
         # Run YOLO inference on the frame
-        results = model(frame, conf=0.3, imgsz=800)
+        results = model(frame, conf=0.3, imgsz=800, device=0)
 
         # FPS calculation
         frame_count += 1
@@ -91,10 +88,14 @@ for img_path in image_paths:
         # Visualize the results on the frame
         annotated_frame = results[0].plot()
 
+        # Resize the frame to a quarter of its original size
+        height, width = frame.shape[:2]
+        resized_frame = cv2.resize(annotated_frame, (width // 2, height // 2))
+
         # Display FPS on the frame
-        cv2.putText(annotated_frame, fps_display, (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2)
+        cv2.putText(resized_frame, fps_display, (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2)
         
-        cv2.imshow("images Inference", annotated_frame)
+        cv2.imshow("images Inference", resized_frame)
         
         # Break the loop if 'q' is pressed
         if cv2.waitKey(1) & 0xFF == ord("q"):
