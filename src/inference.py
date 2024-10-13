@@ -7,7 +7,7 @@ import time
 
 model = YOLO("C:/Users/abdir/Desktop/models/best.pt")
 
-image_paths = glob.glob("C:/Users/abdir/Desktop/_images/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video/*.jpg")
+image_paths = glob.glob("C:/Users/abdir/Pictures/_images/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video/*.jpg")
 
 # Desired FPS
 desired_fps = 10.0

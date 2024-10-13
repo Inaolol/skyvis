@@ -7,10 +7,10 @@ import time
 model = YOLO("C:/Users/abdir/Desktop/models/best.pt")
 
 # Define a glob search for all JPG files in a directory
-image_paths = glob.glob("C:/Users/abdir/Desktop/_images/*.jpg")
+image_paths = glob.glob("C:/Users/abdir/Pictures/_images/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video/*.jpg")
 
 # Desired FPS
-desired_fps = 7.5
+desired_fps = 20.0
 frame_duration = 1.0 / desired_fps
 
 frame_count = 0
@@ -23,8 +23,8 @@ for img_path in image_paths:
     # Check if the image was successfully loaded
     if frame is not None:
         # Resize the frame to a quarter of its original size
-        height, width = frame.shape[:2]
-        frame = cv2.resize(frame, (width // 2, height // 2))
+        #height, width = frame.shape[:2]
+        #frame = cv2.resize(frame, (width // 2, height // 2))
 
         # Run YOLO inference on the frame
         results = model(frame, conf=0.3)
