@@ -10,7 +10,7 @@ from ultralytics import YOLO
 import cv2
 from .position_estimator import PositionEstimator
 
-# do_not_save = False
+do_not_save = False
 
 class ObjectDetectionModel:
     # Base class for team models
