@@ -1,5 +1,5 @@
-# Interface for Competition
-This repository has been developed to establish a connection to the Teknofest Artificial Intelligence in Transportation Competition evaluation server (TUYZDS). 
+# Competition Interface 
+This repository has been developed to establish a connection to the Teknofest AI in Transportation Competition evaluation server. 
  
 
 # Setup
