@@ -4,7 +4,7 @@ from collections import defaultdict
 import shutil
 
 # Define the base path for your images and annotations
-base_path = "C:/Users/abdir/Downloads/Compressed/traffic_birdseye_revised/traffic_birdseye"
+base_path = ""
 
 # Destination path where the sorted folders will be created
 destination_base_path = "C:/Users/abdir/Desktop/Big_datasets"

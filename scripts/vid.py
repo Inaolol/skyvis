@@ -6,7 +6,7 @@ import time
 model = YOLO("C:/Users/abdir/Desktop/models/best.pt")
 
 # Open the video file
-video_path = "C:/Users/abdir/Downloads/2023 Örnek Video.mp4"
+video_path = "C:/Users/abdir/"
 cap = cv2.VideoCapture(video_path)
 
 # Desired FPS

@@ -1,12 +1,9 @@
 from inference import InferencePipeline
 from inference.core.interfaces.camera.entities import VideoFrame
-
-# import opencv to display our annotated images
 import cv2
-# import supervision to help visualize our predictions
 import supervision as sv
 
-# create a simple box annotator to use in our custom sink
+# Define a bounding box annotator to draw bounding boxes on the video frame
 annotator = sv.BoundingBoxAnnotator()
 
 # Define a label map to adjust class names

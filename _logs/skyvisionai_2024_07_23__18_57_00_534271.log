@@ -1,7 +1,0 @@
-2024-07-23 18:57:00,535 - INFO - Created Object Detection Model
-2024-07-23 18:57:00,849 - INFO - Login Successfully Completed : {'username': 'skyvisionai', 'password': '1QYHHUPlYuwe'}
-2024-07-23 18:57:00,861 - INFO - Frames loaded from ./_images/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video\frames.json
-2024-07-23 18:57:00,862 - INFO - Frames file exists. Loading frames from file.
-2024-07-23 18:57:00,870 - INFO - Translations loaded from ./_images/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video\translations.json
-2024-07-23 18:57:00,871 - INFO - Translations file exists. Loading translations from file.
-2024-07-23 18:57:00,872 - INFO - frame_000000.jpg already exists in ./_images/2024_TUYZ_Online_Yarisma_Ana_Oturum_pmcfrqkz_Video/, skipping download.
