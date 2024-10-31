@@ -5,7 +5,7 @@ This repository has been developed to establish a connection to the Teknofest Ar
 # Setup
 
 - Create a virtual environment for the system (Assuming Anaconda is installed).
-- For skyvision we gonna use python=3.8
+- We gonna use python=3.8
 ```shell
 $ conda create -n yarisma python=3.8
 $ conda activate yarisma
