@@ -29,9 +29,9 @@ def move_files(source_path, destination_path, prefixes):
     print(f"Moved {moved_count} files to {destination_path}")
 
 # Paths configuration
-source_path = "C:/Users/abdir/Downloads/Compressed/traffic_birdseye_revised/traffic_birdseye"
-destination_path = "C:/Users/abdir/Desktop/Annon/tobechacked"
-prefix_file = "C:/Users/abdir/Desktop/filenames.txt"
+source_path = ""
+destination_path = ""
+prefix_file = ""
 
 # Read prefixes from file
 prefixes = read_prefixes(prefix_file)
