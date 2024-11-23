@@ -27,6 +27,6 @@ def cleanup_directory(source_directory, destination_directory):
         print(f"Moved unmatched image file to: {new_location}")
 
 # Example usage:
-source_directory = 'C:/Users/abdir/Desktop/Dataset'
-destination_directory = 'C:/Users/abdir/Desktop/Error'
+source_directory = ''
+destination_directory = ''
 cleanup_directory(source_directory, destination_directory)
