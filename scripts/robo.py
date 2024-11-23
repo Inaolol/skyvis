@@ -3,7 +3,7 @@ import supervision as sv
 import cv2
 
 
-image_file = "C:/Users/abdir/Downloads/Oturum1_Part1-20221229T165645Z-002/Oturum1_Part1/frame_000688.jpg"
+image_file = ""
 image = cv2.imread(image_file)
 model = get_model(model_id="tkno/10")
 
