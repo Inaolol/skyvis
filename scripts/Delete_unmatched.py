@@ -29,5 +29,5 @@ def cleanup_directory(directory):
         print(f"Deleted unmatched XML file: {xml_path}")
 
 # Example usage:
-directory = 'C:/Users/abdir/Desktop/Big_datasets'
+directory = ''
 cleanup_directory(directory)
