@@ -2,8 +2,8 @@ import glob
 import os
 import xml.etree.ElementTree as ET
 
-dirs = ['C:/Users/abdir/Documents/Old_anon']
-output_directory = "C:/Users/abdir/Documents/Converted_Dataset"
+dirs = ['C:/Users']
+output_directory = "C:/Users"
 classes = ['Vehicle', 'Human', 'FCP', 'FAL']
 
 if not os.path.exists(output_directory):
