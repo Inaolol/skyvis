@@ -24,7 +24,7 @@ pip install -r requirements.txt
 ````text
 TEAM_NAME=team_name
 PASSWORD=password
-EVALUATION_SERVER_URL="SERVER INFORMATION WILL BE SHARED WITH COMPETITORS WHEN THE SERVER IS OPENED"
+EVALUATION_SERVER_URL="SERVER INFORMATION WILL BE SHARED"
 SESSION_NAME=session_name
 ````
 
@@ -43,5 +43,5 @@ Details about integrating the developed models into the ``ObjectDetectionModel``
 
 ## Reviewing Logs
 
-The system logs its operations under the _logs folder during runtime. System errors can be tracked through these log files. 
+The system logs its operations under the _logs folder during runtime. System errors can be tracked through these log files.
 During the competition, the content of the log file will be considered for any objections.
