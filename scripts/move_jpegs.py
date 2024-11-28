@@ -2,7 +2,7 @@ import os
 import shutil
 
 # Specify the source directory where JPG files are located
-source_dir = 'C:/Users/abdir/Documents/'
+source_dir = 'C:/Users'
 # Specify the target directory where JPG files should be moved
 target_dir = 'C:/Users/abdir/Documents/images'
 
