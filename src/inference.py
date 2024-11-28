@@ -5,7 +5,7 @@ import glob
 import time
 
 
-model = YOLO("C:/Users/abdir/Desktop/models/best.pt")
+model = YOLO("C:/Users/models/best.pt")
 
 image_paths = glob.glob("C:/Users/abdir/Pictures/_images/*.jpg")
 
