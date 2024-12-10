@@ -111,5 +111,4 @@ for img_path in image_paths:
         print(f"Failed to load image {img_path}")
 
 print(f"Frame count: {frame_count}")
-# Close the display window
 cv2.destroyAllWindows()
