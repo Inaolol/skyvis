@@ -39,11 +39,11 @@ def process_annotation(image_dir, output_dir, txt_file):
     except Exception as e:
         print(f"Error processing {txt_file}: {e}")
 
-# Main function
+
 if __name__ == '__main__':
-    annotation_dir = 'C:/Users/abdir/Desktop/Big_datasets/Converted_data'  # Path to the directory containing annotation files
-    image_dir = 'C:/Users/abdir/Desktop/Big_datasets/All_JPEGs'            # Path to the directory containing image files
-    output_dir = 'C:/Users/abdir/Desktop/Big_datasets/Visualized'           # Path to save processed images
+    annotation_dir = 'C:/Users/'  # Path to the directory containing annotation files
+    image_dir = 'C:/Users/'            # Path to the directory containing image files
+    output_dir = 'C:/Users/'           # Path to save processed images
 
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
@@ -62,9 +62,3 @@ if __name__ == '__main__':
     pool.join()
 
     print('Processing completed in {:.2f} seconds.'.format(time.time() - start_time))
-
-#LABEL_FOLDER = 'C:/Users/abdir/Desktop/Big_datasets/Converted_data/'  # Put the label files in this folder.
-#RAW_IMAGE_FOLDER = 'C:/Users/abdir/Desktop/Big_datasets/All_JPEGs/'  # Put the original images without boxes in this folder. 
-#OUTPUT_IMAGE_FOLDER = 'C:/Users/abdir/Desktop/Big_datasets/Visualized/'  # The output images would be saved to this folder. 
-#IMAGE_NAME_LIST_PATH = 'C:/Users/abdir/Desktop/Big_datasets/name_list.txt'  # The file name of images will be saved into this text file. 
-#CLASS_PATH = 'C:/Users/abdir/Desktop/Big_datasets/classes.txt' # Put the class names in this text file.

@@ -3,7 +3,7 @@ import glob
 import time
 import os
 
-image_directory = "C:/Users/abdir/Desktop/Visualized"
+image_directory = "C:/Users/"
 cv2.namedWindow("Image to video", cv2.WINDOW_NORMAL)
 
 # Desired FPS
