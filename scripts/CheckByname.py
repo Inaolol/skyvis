@@ -31,12 +31,6 @@ for file_name in files:
             if name not in exclusions:
                 unique_names.add(name)
                 
-    
-        # Print the name of the current file and unique names
-      #  print(f"Unique names in {file_name}:")
-      #  for name in unique_names:
-      #      print(name)
-      #  print()  # Adds a newline for better separation between files
 
        # Print the name of the current file and unique names if there are any
         if unique_names:
@@ -44,5 +38,4 @@ for file_name in files:
             for name in unique_names:
                 print(name)
             print()  # Adds a newline for better separation between files
-       # else:
-       #     print(f"No allowed unique names in {file_name}.\n")
+       
