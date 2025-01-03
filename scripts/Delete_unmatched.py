@@ -28,6 +28,6 @@ def cleanup_directory(directory):
         os.remove(xml_path)
         print(f"Deleted unmatched XML file: {xml_path}")
 
-# Example usage:
+
 directory = ''
 cleanup_directory(directory)
