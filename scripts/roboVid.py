@@ -8,8 +8,8 @@ annotator = sv.BoundingBoxAnnotator()
 
 # Define a label map to adjust class names
 label_map = {
-    "aVehicle": "vh",
-    "bHuman" : "Hn"
+    "aVehicle": "Vehic",
+    "bHuman" : "Human"
 }
 
 def my_custom_sink(predictions: dict, video_frame: VideoFrame):
