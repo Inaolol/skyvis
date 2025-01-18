@@ -5,12 +5,12 @@ import glob
 import time
 
 
-model = YOLO("models/best.pt")
+model = YOLO("/WALDO30_yolov8m_640x640.pt")
 
 image_paths = glob.glob("_images/*.jpg")
 
 # Desired FPS
-desired_fps = 10.0
+desired_fps = 2.0
 frame_duration = 1.0 / desired_fps
 
 frame_count = 0
