@@ -96,7 +96,7 @@ class ObjectDetectionModel:
             
             height, width = frame.shape[:2]
             frame = cv2.resize(frame, (width // 2, height // 2))
-
+            
             results = self.model(frame, conf=0.4, imgsz=800, device=0)
             # FPS calculation
             frame_count += 1
