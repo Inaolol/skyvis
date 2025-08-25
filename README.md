@@ -41,7 +41,3 @@ python main.py
 You can only make changes within the ```object_detection_model.py``` file, without modifying the provided server communication interface code.
 Details about integrating the developed models into the ``ObjectDetectionModel`` class are specified in the code comments.
 
-## Reviewing Logs
-
-The system logs its operations under the _logs folder during runtime. System errors can be tracked through these log files.
-During the competition, the content of the log file will be considered for any objections.
