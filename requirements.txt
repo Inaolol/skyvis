@@ -1,4 +1,4 @@
 python-decouple
-requests~=2.25.1
+requests>=2.32.4
 Pillow>=10.3.0
 tqdm
