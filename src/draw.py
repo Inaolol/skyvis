@@ -4,7 +4,7 @@ import numpy as np
 # Create a blank white image (you can load an actual image here if needed)
 # image = np.ones((100, 300, 3), dtype=np.uint8) * 255
 
-image_path = "C:/Users/abdir/Desktop/_images/frame_1000.jpg"
+image_path = "./_images/frame_1000.jpg"
 image = cv2.imread(image_path)
 
 if image is not None:    
