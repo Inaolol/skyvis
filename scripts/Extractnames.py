@@ -13,7 +13,7 @@ def extract_file_names(file_path):
     return file_names
 
 # Path to your text file
-file_path = 'C:/Users/abdir/Desktop/badlabel.txt'
+file_path = './Desktop/badlabel.txt'
 file_names = extract_file_names(file_path)
 for name in file_names:
     print(name + '.xml')

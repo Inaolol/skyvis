@@ -2,7 +2,7 @@ import os
 import xml.dom.minidom
 
 # Define the path to the directory containing your XML files
-annotation_path = "C:/"
+annotation_path = "./"
 
 # Define a set of names to exclude
 exclusions = {'Vehicle', 'Human', 'FCP', 'FAL'}

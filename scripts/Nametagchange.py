@@ -2,7 +2,7 @@ import xml.etree.ElementTree as ET
 import os
 
 # Path to the directory containing both XML and JPG files
-base_path = "C:/Users/abdir/Desktop/Dataset"
+base_path = "./Desktop/Dataset"
 
 # Mapping of old tags to new tags
 tag_changes = {
