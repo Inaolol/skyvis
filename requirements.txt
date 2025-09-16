@@ -1,4 +1,11 @@
+
+# Updated requirements for the project
 python-decouple
 requests>=2.32.4
 Pillow>=10.3.0
 tqdm
+ultralytics
+opencv-python
+numpy
+supervision
+inference
