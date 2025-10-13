@@ -20,15 +20,6 @@ SESSION_NAME=your_session_name
 python main.py
 ```
 
-## Development
-
-**Competition Rule**: Only modify `src/object_detection_model.py`
-
-Train models using `scripts/training.ipynb` and update the model path in `ObjectDetectionModel`:
-```python
-self.model = YOLO("runs/train/weights/best.pt")
-```
-
 ## Object Classes
 
 - **Tasit** (0): Vehicle
@@ -37,8 +28,4 @@ self.model = YOLO("runs/train/weights/best.pt")
 - **UAI** (3): UAI
 
 Landing status: Inilebilir (1), Inilemez (0), Inis Alani Degil (-1)
-
-## License
-
-MIT
 
